@@ -28,3 +28,10 @@ model Post {
   createdAt DateTime @unique @default(now())
   updatedAt DateTime @unique @default(now())
 }
+
+model Player {
+  id String           @id @default(uuid())
+  nowPlayingVideoId String
+  playTimeNow Int
+  startPlayAt DateTime @default(now())
+}

@@ -1,0 +1,29 @@
+version: '3.8'
+
+volumes:
+  node_modules:
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+
+  nextjs:
+    build:
+      context: .
+      dockerfile: ./compose/nextjs/Dockerfile-dev
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 5555:5555
+    depends_on:
+      - postgres
+    tty: true

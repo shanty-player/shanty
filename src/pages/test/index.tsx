@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { AddMessageForm, SearchBar } from 'components';
-import { trpc } from '../utils/trpc';
+import { trpc } from 'utils/trpc';
 
 export default function IndexPage() {
   const postsQuery = trpc.useInfiniteQuery(['post.infinite', {}], {

@@ -11,4 +11,7 @@ module.exports = {
     APP_URL: process.env.APP_URL,
     WS_URL: process.env.WS_URL,
   },
+  env: {
+    YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
+  },
 };

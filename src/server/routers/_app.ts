@@ -6,6 +6,7 @@ import { clearInterval } from 'timers';
 import { createRouter } from '../createRouter';
 import { postRouter } from './post';
 import superjson from 'superjson';
+import { playerRouter } from './player';
 
 /**
  * Create your application's root router
@@ -25,6 +26,7 @@ export const appRouter = createRouter()
    */
   // .formatError(({ shape, error }) => { })
   .merge('post.', postRouter)
+  .merge('player.', playerRouter)
   .subscription('randomNumber', {
     resolve() {
       return new Subscription<number>((emit) => {
